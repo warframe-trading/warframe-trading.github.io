@@ -110,27 +110,30 @@ function displayDropSources(data, itemName) {
     }
 }
 
+function toTitleCase(str) {
+    return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+}
+
 function copyMessage(user, orderType, itemName, mod_rank, platinum) {
     // Switch order type
     var oppositeOrderType = orderType === 'buy' ? 'sell' : 'buy';
 
     // Replace "undefined" with the actual item or mod name
     itemName = itemName || document.getElementById('itemName').value;
+    
+    // Convert itemName to title case
+    itemName = toTitleCase(itemName);
 
     var message = `/w ${user} Hey there! I want to ${oppositeOrderType}: "[${itemName}] (rank ${mod_rank})" for ${platinum} platinum. (Sent from Warframe.market Minimized!)`;
 
     navigator.clipboard.writeText(message).then(function() {
-             alertify 
-.alert("Success!",`${message} copied to clipboard!`, function(){
-})
+        alertify.alert("Success!", `${message} copied to clipboard!`, function(){});
     }).catch(function(err) {
         console.error('Unable to copy message to clipboard', err);
-         alertify 
-.alert("Error!","Error copying message to clipboard. Please try again.", function(){
-})
-
+        alertify.alert("Error!", "Error copying message to clipboard. Please try again.", function(){});
     });
 }
+
 
 
 function filterOrders(orders) {
@@ -332,7 +335,8 @@ function copyMessage(user, orderType, itemName, mod_rank, platinum) {
 
     // Replace "undefined" with the actual item or mod name
     itemName = itemName || document.getElementById('itemName').value;
-
+    // Convert itemName to title case
+    itemName = toTitleCase(itemName);
     var message = `/w ${user} Hey there! I want to ${oppositeOrderType}: "[${itemName}] (rank ${mod_rank})" for ${platinum} platinum. (Sent from Warframe.market Minimized!)`;
 
     navigator.clipboard.writeText(message).then(function() {
@@ -387,12 +391,12 @@ function sortOrders(orders) {
     });
 }
 
-function fetchStatistics() {
+function calculateStatistics() {
     var itemName = document.getElementById('itemName').value;
     var apiUrl = `https://api.warframe.market/v1/items/`;
-    const proxyUrl = 'https://cors-proxy.fringe.zone/'; 
+    const proxyUrl = 'https://cors-proxy.fringe.zone/';
     itemName = itemName.toLowerCase().replace(/\s+/g, '_');
-    var fullApiUrl = proxyUrl + apiUrl +itemName + '/statistics';
+    var fullApiUrl = proxyUrl + apiUrl + itemName + '/statistics';
 
     fetch(fullApiUrl)
         .then(response => {
@@ -406,11 +410,10 @@ function fetchStatistics() {
         })
         .catch(error => {
             console.error('Error fetching statistics:', error);
-                alertify 
-.alert("Error!","Error fetching statistics. Please try again.", function(){
-})
+            alertify.alert("Error!", "Error fetching statistics. Please try again.", function(){});
         });
 }
+
 
 function displayStatistics(data) {
     var statisticsResultContainer = document.getElementById('statisticsResult');
@@ -421,17 +424,14 @@ function displayStatistics(data) {
 
         data.payload.statistics.forEach(statistic => {
             var listItem = document.createElement('li');
-            listItem.textContent = `Date: ${datetime} | Volume: ${statistics.volume} | Min Price: ${statistics.min_price} | Max Price: ${statistics.max_price} | Mean Price: ${statistics.avg_price} | Mod Rank: ${statistics.mod_rank}`;
+            listItem.textContent = `Date: ${statistic.datetime} | Volume: ${statistic.volume} | Min Price: ${statistic.min_price} | Max Price: ${statistic.max_price} | Mean Price: ${statistic.avg_price} | Mod Rank: ${statistic.mod_rank}`;
             statisticsList.appendChild(listItem);
         });
 
         statisticsResultContainer.appendChild(statisticsList);
     } else {
-            var itemName = document.getElementById('itemName').value;
-            itemName = itemName.toLowerCase().replace(/\s+/g, '_');
-       alertify 
-.alert("Error!","No statistics available for " + itemName, function(){
-});
-        
+        var itemName = document.getElementById('itemName').value;
+        itemName = itemName.toLowerCase().replace(/\s+/g, '_');
+        alertify.alert("Error!", "No statistics available for " + itemName, function(){});
     }
 }

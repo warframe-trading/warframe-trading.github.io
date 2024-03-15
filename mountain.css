@@ -242,7 +242,7 @@ details summary[role=button]:not(.outline)::after {
   --mt-primary-border: var(--mt-primary-background);
   --mt-primary-underline: rgba(1, 114, 173, 0.5);
   --mt-primary-hover: #015887;
-  --mt-primary-hover-background: #00ffeb;
+  --mt-primary-hover-background: #c658f9;
   --mt-primary-hover-border: var(--mt-primary);
    --mt-primary-hover-color: #000;
   --mt-primary-hover-underline: var(--mt-primary-hover);

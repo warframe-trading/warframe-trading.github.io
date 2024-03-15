@@ -1,82 +1,28 @@
-@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@300;600&display=swap");
-
 @media only screen and (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]){
-       --mt-primary: #19dacb;
-       --mt-primary-hover-background: #00ffeb;
+        --primary: #43A047;
         --primary-hover: #4CAF50;
         --primary-focus: rgba(67,160,71,0.25);
         --primary-inverse: #FFF;
-    --clr-body-bg: #10181e;
+    }
+}
+:root {
+    --clr-body-bg: hsl(206%, 29%, 9%);
     --clr-card-bg: hsl(0 0% 15%);
     --clr-light-text: hsl(0°, 0%, 100%);
       --clr-dark-text: hsl(0°, 0%, 0%);
     --clr-heading: hsl(45, 78%, 82%);
     --clr-border: hsl(0°, 0%, 20%);
-    --clr-alert-text: #fff;
-        --clr-button-text: #fff;
-        button{
-            color: black;
-        }
-    }
-}
-@media only screen and (prefers-color-scheme: light) {
-
-    :root:not([data-theme="dark"]){
-       --mt-primary: #893eff;
-        --mt-primary-hover-background: #c658f9;
-          --clr-body-bg: #fefefe;
-    --clr-card-bg: hsl(0 0% 15%);
-    --clr-light-text: hsl(0°, 0%, 100%);
-      --clr-dark-text: hsl(0°, 0%, 0%);
-    --clr-heading: hsl(45, 78%, 82%);
-    --clr-border: hsl(0°, 0%, 20%);
-    --clr-alert-text: #000;
-        --clr-button-text: #000;
-                button{
-            color: white;
-        }
-
-    #itemName:not(:focus) {
-    padding: 8px;
-    margin-right: 8px;
-    color: black; /* Set text color to white */
-    transition: 1.5s ease;
-    width: 100%;
-    background-color: #cbcbcb;
-    text-align: center;
-    font-family: 'Orbitron', sans-serif;
-  font-weight: 900;
-
-}
-        
-#itemName:focus {
-    padding: 8px;
-    margin-right: 8px;
-    color: black; /* Set text color to white */
-    transition: 1.5s ease;
-    width: 50%;
-    background-color: #cbcbcb;
-    text-align: center;
-    font-family: 'Orbitron', sans-serif;
-  font-weight: 900;
-
-}    .drop-sources-table th {
-    background-color: #cdcdcd;
-}
-    }
-}
-
-
+  }
 html{
     scroll-behavior: smooth;
     }
 body {
     background-color: var( --clr-body-bg);
+    backdrop-filter: blur(20px);
 
     color: white;
-     font-family: 'Orbitron', sans-serif;
-    font-weight: 900;
+     font-family: 'Arial Black', sans-serif;
     scroll-behavior: smooth;
 }
  body::-webkit-scrollbar {
@@ -86,16 +32,16 @@ body {
         background: #1E1E24;
     }
         body::-webkit-scrollbar-thumb {
-        background: #19dacb;
+        background: #1095C1;
     }
  body::-webkit-scrollbar:hover {
-        width: 0.5rem;
+        width: 1rem;
     }
         body::-webkit-scrollbar-track:hover {
         background: #1E1E24;
     }
         body::-webkit-scrollbar-thumb:hover {
-        background: #19dacb;
+        background: #1095C1;
     }
 .container {
     text-align: center;
@@ -114,9 +60,9 @@ body {
 h1 {
     color: #0bec7c;
     font-family: 'Orbitron', sans-serif;
-  font-weight: 900;
 
 
+;
 }
 
 label {
@@ -124,56 +70,55 @@ label {
     color: white; /* Set text color to white */
 }
 
-#itemName:not(:focus) {
+#itemName {
     padding: 8px;
     margin-right: 8px;
     color: white; /* Set text color to white */
-    transition: 1.5s ease;
-    width: 100%;
+    width: 12%;
     background-color: #1f1f1f;
     text-align: center;
-    font-family: 'Orbitron', sans-serif;
-  font-weight: 900;
+    font-family: 'Arial Black', sans-serif;
+
 
 }
 #itemName:focus {
     padding: 8px;
     margin-right: 8px;
     color: white; /* Set text color to white */
-    transition: 1.5s ease;
-    width: 50%;
+    width: 18%;
     background-color: #1f1f1f;
     text-align: center;
-    font-family: 'Orbitron', sans-serif;
-  font-weight: 900;
+    font-family: 'Arial Black', sans-serif;
+
 
 }
 
 
 button {
     padding: 8px;
-    background-color: var(--mt-primary);
-/*#0172ad; */
+    background-color: #0bec7c;
     border: none;
+    color: black;
     cursor: pointer;
-    border-radius: 8px;
-    color: var(--clr-button-text);
+    border: 2px solid #0bec7c;
+        border-radius: 8px;
 
 
 }
-button:not():hover {
-    transition: 500ms;
-    background-color: var(--mt-primary-hover-background);
-/* #19b3e6; */
+button:hover {
+    padding: 8px;
+    background-color: #4fd355;
     border: none;
+    color: white;
     cursor: pointer;
-    color: var(--clr-button-text);
+    border: 5px solid #333;
+    border-radius: 8px;
+
 }
 
 
 #priceResult {
     color: white; /* Set text color to white */
-    height: auto;
 }
 
 /* New CSS for invisible bullets and horizontal line */
@@ -183,22 +128,6 @@ button:not():hover {
 }
 
 #priceResult li {
-    border-bottom: 1px solid #555; /* Horizontal line color */
-    margin-bottom: 5px;
-    padding-bottom: 5px;
-}
-#statisticsResult {
-    color: white; /* Set text color to white */
-    height: auto;
-}
-
-/* New CSS for invisible bullets and horizontal line */
-#statisticsResultt ul {
-    list-style: none;
-    padding: 0;
-}
-
-#statisticsResultt li {
     border-bottom: 1px solid #555; /* Horizontal line color */
     margin-bottom: 5px;
     padding-bottom: 5px;
@@ -280,15 +209,12 @@ button:not():hover {
     font-size: 16px;
 }
 /* Styles for Sort By and Filter By */
-#sortBy, #statusFilter, #checkPriceBtn, #showDropSourcesBtn, #checkStatisticsBtn {
-    font-family: 'Orbitron', sans-serif;
-    width: auto;
-      font-weight: 900;
+#sortBy, #statusFilter, #checkPriceBtn, #showDropSourcesBtn {
+    font-family: 'Arial Black', sans-serif;
+    width: auto
 }
-
 #platform {
-    font-family: 'Orbitron', sans-serif;
-      font-weight: 900;
+    font-family: 'Arial Black', sans-serif;
 }
 
 .filter-container {
@@ -386,14 +312,13 @@ input[type="checkbox"]:checked:hover + label {
 /* Add this to your style.css file */
 #jsonResult {
     width: 80%;
-    height: auto;
+    height: 300px;
     margin: 0 auto;
     display: block;
     padding: 10px;
     box-sizing: border-box;
     margin-top: 10px;
-    font-family: 'Orbitron', sans-serif;
-    font-weight: 900;
+    font-family: 'Arial', sans-serif;
     font-size: 14px;
     color: #4CAF50;
     background-color: #333;
@@ -719,8 +644,7 @@ justify-content: center;
 align-items: center;
 }
 #text:has(.fancy:hover) .sentence:not(.fancy:hover){
-    filter: blur(20px);
-    transition: 0.5s;
+    opacity: 0.6;
 }
    article{
     padding: 500px;
@@ -736,90 +660,4 @@ align-items: center;
      border: #374956;
 }       
       
-
-.table-btn {
-    padding: 8px;
-    border: none;
-    color: white;
-    cursor: pointer;
-    border-radius: 8px;
-    margin-bottom: 5px; /* Add some bottom margin for spacing */
-}
-
-.table-btn:hover {
-    padding: 8px;
-    border: none;
-    color: white;
-    cursor: pointer;
-    border: 5px solid #333;
-    border-radius: 8px;
-}
-input[type=search] {
-    width: 100%;
-}
-input[type=search]:focus {
-    width: 50%;
-}
-
-        .alertify .ajs-dialog{
-              /* top: 20%;
-            bottom: 0;
-                left: 0; */
-            border-radius: 8px;
-position:relative;
-margin:5% auto;
-min-height:110px;
-max-width:500px;
-padding:24px 24px 0 24px;
-outline:0;
-color: var(--clr-alert-text);
-background-color: var(--clr-body-bg);
-box-shadow: 0px 20px 10px rgba(0,0,0,0.5);
-
-}
-.alertify .ajs-header{
-margin:-24px;
-margin-bottom:0;
-padding:16px 24px;
-color: var(--clr-alert-text);
-background-color: var(--clr-body-bg);
-}
-        .alertify .ajs-footer{
-padding:4px;
-margin-left:-24px;
-margin-right:-24px;
-min-height:43px;
-color: var(--clr-alert-text);
-background-color: var(--clr-body-bg);
-}
-        .alertify .ajs-dimmer{
-position:fixed;
-z-index:1981;
-top:0;
-right:0;
-bottom:0;
-left:0;
-padding:0;
-margin:0;
-background-color:#000;
-            opacity: 0.5;
-filter: blur(20px);
-}
-.fa-circle-thin, .fa-github, .fa-youtube{
-    color: var(--clr-alert-text);
-}
-  .alertify .ajs-dialog .ajs-button {
-      background-color:
-  }
-a{
-    color: var(--mt-primary);
-    text-decoration: none;
-}
-a:hover{
-    color: var(--mt-primary-hover-background);
-}
-
-button[data-tooltip] {
-transition-delay: 500ms;
-}
 
