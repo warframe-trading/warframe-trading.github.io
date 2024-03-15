@@ -823,3 +823,8 @@ button[data-tooltip] {
 transition-delay: 500ms;
 }
 
+.overall-stats-item {
+    list-style-type: none; /* Hide bullet point */
+    border: 1px solid #fff; /* Add border */
+    padding: 10px; /* Add padding */
+}

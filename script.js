@@ -393,7 +393,7 @@ function sortOrders(orders) {
 
 function calculateStatistics() {
     var itemName = document.getElementById('itemName').value;
-    var apiUrl = `https://api.warframe.market/v1/items/`;
+    var apiUrl = 'https://api.warframe.market/v1/items/';
     const proxyUrl = 'https://cors-proxy.fringe.zone/';
     itemName = itemName.toLowerCase().replace(/\s+/g, '_');
     var fullApiUrl = proxyUrl + apiUrl + itemName + '/statistics';
@@ -419,19 +419,41 @@ function displayStatistics(data) {
     var statisticsResultContainer = document.getElementById('statisticsResult');
     statisticsResultContainer.innerHTML = ''; // Clear previous results
 
-    if (data.payload && data.payload.statistics && data.payload.statistics.length > 0) {
+    if (data.payload && data.payload.statistics_closed && data.payload.statistics_closed['48hours']) {
         var statisticsList = document.createElement('ul');
 
-        data.payload.statistics.forEach(statistic => {
-            var listItem = document.createElement('li');
-            listItem.textContent = `Date: ${statistic.datetime} | Volume: ${statistic.volume} | Min Price: ${statistic.min_price} | Max Price: ${statistic.max_price} | Mean Price: ${statistic.avg_price} | Mod Rank: ${statistic.mod_rank}`;
-            statisticsList.appendChild(listItem);
+        var minPrice = Number.MAX_VALUE;
+        var maxPrice = Number.MIN_VALUE;
+        var totalPrices = 0;
+        var numPrices = 0;
+
+        data.payload.statistics_closed['48hours'].forEach(statistic => {
+            numPrices++;
+            totalPrices += statistic.min_price; // Add min price to totalPrices
+
+            // Update min and max prices if needed
+            if (statistic.min_price < minPrice) {
+                minPrice = statistic.min_price;
+            }
+            if (statistic.max_price > maxPrice) {
+                maxPrice = statistic.max_price;
+            }
         });
+
+        var averagePrice = totalPrices / numPrices; // Calculate average price
+
+        // Create list item for overall statistics
+        var overallStatsItem = document.createElement('li');
+        overallStatsItem.textContent = `Overall Statistics: Min Price: ${minPrice} | Max Price: ${maxPrice} | Average Price: ${averagePrice.toFixed(2)}`;
+        overallStatsItem.classList.add('overall-stats-item'); // Add class for styling
+        statisticsList.appendChild(overallStatsItem);
 
         statisticsResultContainer.appendChild(statisticsList);
     } else {
         var itemName = document.getElementById('itemName').value;
-        itemName = itemName.toLowerCase().replace(/\s+/g, '_');
-        alertify.alert("Error!", "No statistics available for " + itemName, function(){});
+itemName = itemName.toLowerCase().replace(/\s+/g, '_');
+alertify.alert("Error!", "No statistics available for the past 48 hours.", function(){});
+        statisticsResultContainer.textContent = "";
     }
 }
+
