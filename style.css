@@ -34,7 +34,7 @@
     --clr-alert-text: #000;
         --clr-button-text: #000;
                 button{
-            color: white;
+            color: black;
         }
 
     #itemName:not(:focus) {

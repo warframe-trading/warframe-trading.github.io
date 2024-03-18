@@ -1,3 +1,4 @@
+
 const proxyUrl = 'https://cors-proxy.fringe.zone/'; //Proxy url is required to bypass CORS errors
 const apiUrl = 'https://api.warframe.market/v1/items/'; // This is the warframe.market api url
 const dropSourcesUrl = 'https://api.warframestat.us/drops/search/'; //This is the dropsources api url  warframe.market's version doesnt really work well with the code
@@ -421,13 +422,51 @@ function displayStatistics(data) {
 
     if (data.payload && data.payload.statistics_closed && data.payload.statistics_closed['48hours']) {
         var statisticsList = document.createElement('ul');
+        
 
         var minPrice = Number.MAX_VALUE;
         var maxPrice = Number.MIN_VALUE;
         var totalPrices = 0;
         var numPrices = 0;
 
+        
+        var minVolume = Number.MAX_VALUE;
+        var maxVolume = Number.MIN_VALUE;
+        var totalVolume = 0;
+        var numVolume = 0;
+        
+        var minOpenPrice = Number.MAX_VALUE;
+        var maxOpenPrice = Number.MIN_VALUE;
+        var totalOpenPrice = 0;
+        var numOpenPrice = 0;        
+    
+        var minClosedPrice = Number.MAX_VALUE;
+        var maxClosedPrice = Number.MIN_VALUE;
+        var totalClosedPrice = 0;
+        var numClosedPrice = 0;          
+
+        var minWaPrice= Number.MAX_VALUE;
+        var maxWaPrice = Number.MIN_VALUE;
+        var totalWaPrice = 0;
+        var numWaPrice = 0;       
+        
+        var minMedian= Number.MAX_VALUE;
+        var maxMedian = Number.MIN_VALUE;
+        var totalMedian = 0;
+        var numMedian = 0;       
+
+        var minDonchTop= Number.MAX_VALUE;
+        var maxDonchTop = Number.MIN_VALUE;
+        var totalDonchTop = 0;
+        var numDonchTop = 0;     
+        
+         var minDonchBot= Number.MAX_VALUE;
+        var maxDonchBot = Number.MIN_VALUE;
+        var totalDonchBot = 0;
+        var numDonchBot = 0;     
         data.payload.statistics_closed['48hours'].forEach(statistic => {
+              
+
             numPrices++;
             totalPrices += statistic.min_price; // Add min price to totalPrices
 
@@ -438,13 +477,83 @@ function displayStatistics(data) {
             if (statistic.max_price > maxPrice) {
                 maxPrice = statistic.max_price;
             }
-        });
+            numVolume++;
+            totalVolume += statistic.volume; // Add min price to totalPrices
 
+            // Update min and max prices if needed
+            if (statistic.volume < minVolume) {
+                minVolume = statistic.volume;
+            }
+            if (statistic.volume > maxVolume) {
+                maxVolume = statistic.volume;
+            }
+             numOpenPrice++;
+            totalOpenPrice += statistic.open_price; // Add min price to totalPrices
+
+            // Update min and max prices if needed
+            if (statistic.open_price < minOpenPrice) {
+                minOpenPrice = statistic.open_price;
+            }
+            if (statistic.open_price > maxOpenPrice) {
+                maxOpenPrice = statistic.open_price;
+            }
+               numClosedPrice++;
+            totalClosedPrice += statistic.closed_price; // Add min price to totalPrices
+
+            // Update min and max prices if needed
+            if (statistic.closed_price < minClosedPrice) {
+                minClosedPrice = statistic.closed_price;
+            }
+            if (statistic.closed_price > maxClosedPrice) {
+                maxClosedPrice = statistic.closed_price;
+            }
+            numWaPrice++;
+            totalWaPrice += statistic.wa_price; // Add min price to totalPrices
+
+            // Update min and max prices if needed
+            if (statistic.closed_price < minWaPrice) {
+                minWaPrice = statistic.wa_price;
+            }
+            if (statistic.wa_price > maxWaPrice) {
+                maxWaPrice = statistic.wa_price;
+            }
+              numMedian++;
+            totalMedian += statistic.median; // Add min price to totalPrices
+
+            // Update min and max prices if needed
+            if (statistic.median < minMedian) {
+                minMedian = statistic.median;
+            }
+            if (statistic.median > maxMedian) {
+                maxMedian = statistic.median;
+            }
+              numDonchTop++;
+            totalDonchTop += statistic.donch_top; // Add min price to totalPrices
+
+            // Update min and max prices if needed
+            if (statistic.donch_top < minDonchTop) {
+                minDonchTop = statistic.donch_top;
+            }
+            if (statistic.donch_top > maxDonchTop) {
+                maxDonchTop = statistic.donch_top;
+            }
+            
+
+        });
+  
         var averagePrice = totalPrices / numPrices; // Calculate average price
+        var averageVolume = totalVolume / numVolume; // Calculate average price
+        var averageOpenPrice = totalOpenPrice / numOpenPrice; // Calculate average price
+        var averageClosedPrice = totalClosedPrice / numClosedPrice; // Calculate average price
+        var averageWaPrice = totalWaPrice / numWaPrice; // Calculate average price
+        var averageMedian = totalMedian / numMedian; // Calculate average price
+        var averageDonchTop = totalDonchTop / numDonchTop; // Calculate average price
 
         // Create list item for overall statistics
         var overallStatsItem = document.createElement('li');
-        overallStatsItem.textContent = `Overall Statistics: Min Price: ${minPrice} | Max Price: ${maxPrice} | Average Price: ${averagePrice.toFixed(2)}`;
+          var itemName = document.getElementById('itemName').value;
+          itemName = toTitleCase(itemName);
+        overallStatsItem.textContent = `Overall Statistics for ${itemName}: Min Price: ${minPrice} |\nMax Price: ${maxPrice} |\nAverage Price: ${averagePrice.toFixed(2)} |\nVolume: ${averageVolume.toFixed(2)} |\nOpen Price: ${averageOpenPrice.toFixed(2)} |\nClosed Price: ${averageClosedPrice.toFixed(2)} |\n WA Price: ${averageWaPrice.toFixed(2)} |\nMedian: ${averageWaPrice.toFixed(2)} |\nDonch Top: ${averageDonchTop.toFixed(2)}`;
         overallStatsItem.classList.add('overall-stats-item'); // Add class for styling
         statisticsList.appendChild(overallStatsItem);
 
@@ -456,4 +565,3 @@ alertify.alert("Error!", "No statistics available for the past 48 hours.", funct
         statisticsResultContainer.textContent = "";
     }
 }
-
