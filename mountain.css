@@ -25,7 +25,7 @@
   --mt-border-radius: 8px;
   --mt-border-width: 0.0625rem;
   --mt-outline-width: 0.125rem;
-  --mt-transition: 0.5s ease-in-out;
+  --mt-transition: 0.75s ease-in-out;
   --mt-spacing: 1rem;
   --mt-typography-spacing-vertical: 1rem;
   --mt-block-spacing-vertical: var(--mt-spacing);
@@ -2641,7 +2641,7 @@ progress::-moz-progress-bar {
   color: var(--mt-tooltip-color);
   font-style: normal;
   font-weight: var(--mt-font-weight);
-  font-size: 0.875rem;
+  font-size: 0.775rem;
   text-decoration: none;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -2700,7 +2700,7 @@ progress::-moz-progress-bar {
   [data-tooltip]:focus::before, [data-tooltip]:focus::after, [data-tooltip]:hover::before, [data-tooltip]:hover::after {
     --mt-tooltip-slide-to: translate(-50%, -0.25rem);
     transform: translate(-50%, 0.75rem);
-    animation-duration: 0.2s;
+    animation-duration: 1.5s;
     animation-fill-mode: forwards;
     animation-name: tooltip-slide;
     opacity: 0;

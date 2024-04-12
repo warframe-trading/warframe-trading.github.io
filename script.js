@@ -3,6 +3,21 @@ const proxyUrl = 'https://cors-proxy.fringe.zone/'; //Proxy url is required to b
 const apiUrl = 'https://api.warframe.market/v1/items/'; // This is the warframe.market api url
 const dropSourcesUrl = 'https://api.warframestat.us/drops/search/'; //This is the dropsources api url  warframe.market's version doesnt really work well with the code
 
+// Line 21 for the checkPrice function
+// Line 70 for the displayDropSources function
+// Line 129 for the toTitleCase function
+// Line 133 for the copyMessage function
+// Line 154 for the filterOrders function
+// Line 165 for the sortOrders function
+// Line 187 for the showDropSources function
+// Line 228 for the displayDropSources function
+// Line 289 for the fetchDropSources function
+// Line 319 for the displayPriceResult function
+// Line 350 for the copyMessage function
+// Line 375 for the filterOrders function
+// Line 393 for the sortOrders function
+// Line 412 for the calculateStatistics function
+// Line 436 for the displayStatistics function
 function checkPrice() {
     var itemName = document.getElementById('itemName').value;
     var selectedPlatform = document.getElementById('platformDropdown').value;
@@ -107,7 +122,7 @@ function displayDropSources(data, itemName) {
 
         dropSourcesContainer.appendChild(table);
     } else {
-        dropSourcesContainer.textContent = `No drop sources available for ${itemName}.`;
+        dropSourcesContainer.textContent = `No drop sources available for given item/mod.` ;
     }
 }
 
@@ -121,11 +136,10 @@ function copyMessage(user, orderType, itemName, mod_rank, platinum) {
 
     // Replace "undefined" with the actual item or mod name
     itemName = itemName || document.getElementById('itemName').value;
-    
     // Convert itemName to title case
     itemName = toTitleCase(itemName);
 
-    var message = `/w ${user} Hey there! I want to ${oppositeOrderType}: "[${itemName}] (rank ${mod_rank})" for ${platinum} platinum. (Sent from Warframe.market Minimized!)`;
+    var message = `/w ${user} Hey! I want to ${oppositeOrderType}: "${itemName} (R ${mod_rank})" for ${platinum}p. (Sent from wm-mini.github.io.)`;
 
     navigator.clipboard.writeText(message).then(function() {
         alertify.alert("Success!", `${message} copied to clipboard!`, function(){});
@@ -266,7 +280,9 @@ function displayDropSources(data) {
 
         dropSourcesContainer.appendChild(table);
     } else {
-        dropSourcesContainer.textContent = `No drop sources available for ${itemName}`;
+               alertify 
+.alert("Error!","No drop sources available for given item/mod",  function(){
+})
     }
 }
 function fetchDropSources(itemName) {
@@ -285,7 +301,7 @@ function fetchDropSources(itemName) {
         .catch(error => {
             console.error('Error fetching drop sources:', error);
                alertify 
-.alert("Error!","Error fetching drop sources. Please try again.", function(){
+.alert("Error!","Error fetching drop sources. Please try again.",  function(){
 })
         });
 }
@@ -308,9 +324,10 @@ function displayPriceResult(data, itemName) {
         var sortedOrders = sortOrders(filteredOrders);
 
         var orderList = document.createElement('ul');
+        
         sortedOrders.forEach(order => {
             var listItem = document.createElement('li');
-            listItem.textContent = ` Item: ${order.item || itemName} | User: ${order.user.ingame_name} | Rank: ${order.mod_rank} | Platinum: ${order.platinum} | Order Type: ${order.order_type} | Status: ${order.user.status} | Platform: ${order.platform}`;
+            listItem.textContent = ` Item: ${order.item || itemName} ❘ User: ${order.user.ingame_name} ❘ Rank: ${order.mod_rank} ❘ Platinum: ${order.platinum} ❘ Order Type: ${order.order_type} ❘ Status: ${order.user.status} ❘ Platform: ${order.platform}`;
             listItem.addEventListener('click', function() {
                 copyMessage(order.user.ingame_name, order.order_type, order.item, order.mod_rank, order.platinum);
             });
@@ -320,7 +337,7 @@ function displayPriceResult(data, itemName) {
         priceResultContainer.appendChild(orderList);
     } else {
          alertify 
-.alert("Error!","No pricing information available for " + itemName, function(){
+.alert("Error!","No pricing information available for " + `"${itemName}"`, function(){
 });
         
     }
@@ -338,7 +355,7 @@ function copyMessage(user, orderType, itemName, mod_rank, platinum) {
     itemName = itemName || document.getElementById('itemName').value;
     // Convert itemName to title case
     itemName = toTitleCase(itemName);
-    var message = `/w ${user} Hey there! I want to ${oppositeOrderType}: "[${itemName}] (rank ${mod_rank})" for ${platinum} platinum. (Sent from Warframe.market Minimized!)`;
+    var message = `/w ${user} Hey! I want to ${oppositeOrderType}: "${itemName} (R ${mod_rank})" for ${platinum}p. (Sent from wm-mini.github.io.)`;
 
     navigator.clipboard.writeText(message).then(function() {
            alertify 

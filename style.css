@@ -1,9 +1,90 @@
 @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@300;600&display=swap");
 
+
+@media (min-width: 765px)  {
+  :root {
+    --mt-font-size:  112.5% !important;/*281.25%; */
+  }
+   div.container#socials {
+      margin-top: -50px; 
+                    width: 50%;
+            transition: 1.5s ease-in-out;
+margin-left: 27%;
+
+        }
+}
+@media (min-width: 1080px)  {
+  :root {
+    --mt-font-size:  112.5% !important;/*281.25%; */
+  }
+   div.container#socials {
+      margin-top: -50px; 
+                    width: 50%;
+            transition: 1.5s ease-in-out;
+margin-left: 65vw;
+
+        }
+}
+
+
+@media screen and (min-width: 1280px)  {
+  :root {
+    --mt-font-size: 125%  !important;
+  }
+      div.container#socials {
+      margin-top: -50px; 
+                    width: 50%;
+            transition: 1.5s ease-in-out;
+margin-left: 65vw;
+
+        }
+    }
+
+@media only screen and (min-width: 1536px) {
+  :root {
+    --mt-font-size: 131.25% !important;
+  }
+      div.container#socials {
+          
+  margin-top: -50px; 
+                    width: 50%;
+            transition: 1.5s ease-in-out;
+margin-left: 65vw;
+
+        }
+    }
+
+
+@media only screen and (min-width: 2192px) {
+  :root {
+    --mt-font-size: 137.8125% !important;
+  }
+    div.container#socials {
+        font-size: var(--mt-font-size);
+       margin-top: -50px; 
+                    width: 50%;
+            transition: 1.5s ease-in-out;
+margin-left: 63vw;
+
+    }
+}
+
+
+
+
+
+    
+    
+  
+
+
+
+
 @media only screen and (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]){
        --mt-primary: #19dacb;
        --mt-primary-hover-background: #00ffeb;
+          --mt-font-size: 100%;
         --primary-hover: #4CAF50;
         --primary-focus: rgba(67,160,71,0.25);
         --primary-inverse: #FFF;
@@ -15,6 +96,7 @@
     --clr-border: hsl(0°, 0%, 20%);
     --clr-alert-text: #fff;
         --clr-button-text: #fff;
+        
         button{
             color: black;
         }
@@ -25,6 +107,7 @@
     :root:not([data-theme="dark"]){
        --mt-primary: #893eff;
         --mt-primary-hover-background: #c658f9;
+          --mt-font-size: 100%;
           --clr-body-bg: #fefefe;
     --clr-card-bg: hsl(0 0% 15%);
     --clr-light-text: hsl(0°, 0%, 100%);
@@ -36,6 +119,7 @@
                 button{
             color: black;
         }
+        
 
     #itemName:not(:focus) {
     padding: 8px;
@@ -65,14 +149,20 @@
     background-color: #cdcdcd;
 }
     }
+    article h6{
+        color: #000 !important;
+    }
 }
 
 
 html{
     scroll-behavior: smooth;
+
     }
 body {
     background-color: var( --clr-body-bg);
+width: 100vw;
+    height: 100vh;
 
     color: white;
      font-family: 'Orbitron', sans-serif;
@@ -174,6 +264,7 @@ button:not():hover {
 #priceResult {
     color: white; /* Set text color to white */
     height: auto;
+    transition: 1.5s ease;
 }
 
 /* New CSS for invisible bullets and horizontal line */
@@ -190,6 +281,7 @@ button:not():hover {
 #statisticsResult {
     color: white; /* Set text color to white */
     height: auto;
+    transition: 1.5s ease;
 }
 
 /* New CSS for invisible bullets and horizontal line */
@@ -237,7 +329,7 @@ button:not():hover {
 .order-item p {
     margin: 5px 0;
     color: white;
-    font-size: 14px;
+    font-size: var(--mt-font-size);
 }
 
 /* Styles for buy and sell columns */
@@ -271,7 +363,7 @@ button:not():hover {
 
 .column-header {
     color: #4CAF50;
-    font-size: 18px;
+    font-size: var(--mt-font-size);
     margin-bottom: 10px;
 }
 
@@ -362,8 +454,7 @@ input[type="checkbox"]:checked:hover + label {
 
 }
 
-
-/* Add this to your style.css file */
+**/
 
 .plat-filter {
     display: flex;
@@ -383,7 +474,6 @@ input[type="checkbox"]:checked:hover + label {
 .plat-filter input {
     padding: 5px;
 }
-/* Add this to your style.css file */
 #jsonResult {
     width: 80%;
     height: auto;
@@ -401,6 +491,8 @@ input[type="checkbox"]:checked:hover + label {
     border-radius: 4px;
     resize: vertical;
     overflow-y: scroll;
+        transition: 1.5s ease;
+
 }
 
 #jsonResult > div {
@@ -440,6 +532,7 @@ input[type="checkbox"]:checked:hover + label {
 #sunIcon {
   display: none;
 }
+
 #info-circle {
   display: inline-block;
 }
@@ -714,7 +807,7 @@ body.light-theme {
     width: auto;
     height: auto;
     display: flex;
-    margin: 100px;
+    margin: 40px;
 justify-content: center;
 align-items: center;
 }
@@ -723,7 +816,12 @@ align-items: center;
     transition: 0.5s;
 }
    article{
-    padding: 500px;
+      width: 200% !important; 
+       box-shadow: 0px 20px 10px rgba(0,0,0,0.5) !important; 
+       border-radius: 8px !important;
+       backdrop-filter: blur(20px) !important;
+       background-color: rgba(26,31,40, 1);
+       border: 1px solid rgba(26,31,40,0.3) !important;
    }
 
 .dark-theme select{
@@ -775,6 +873,8 @@ outline:0;
 color: var(--clr-alert-text);
 background-color: var(--clr-body-bg);
 box-shadow: 0px 20px 10px rgba(0,0,0,0.5);
+            backdrop-filter: blur(20px);
+
 
 }
 .alertify .ajs-header{
@@ -803,7 +903,7 @@ padding:0;
 margin:0;
 background-color:#000;
             opacity: 0.5;
-filter: blur(20px);
+backdrop-filter: blur(20px);
 }
 .fa-circle-thin, .fa-github, .fa-youtube{
     color: var(--clr-alert-text);
@@ -827,4 +927,39 @@ transition-delay: 500ms;
     list-style-type: none; /* Hide bullet point */
     border: 1px solid #fff; /* Add border */
     padding: 10px; /* Add padding */
+}
+h1 {
+  --mt-font-size: 2rem;
+  --mt-line-height: 1.125;
+  --mt-typography-spacing-top: 3rem;
+}
+
+h2 {
+  --mt-font-size: 1.75rem;
+  --mt-line-height: 1.15;
+  --mt-typography-spacing-top: 2.625rem;
+}
+
+h3 {
+  --mt-font-size: 1.5rem;
+  --mt-line-height: 1.175;
+  --mt-typography-spacing-top: 2.25rem;
+}
+
+h4 {
+  --mt-font-size: 1.25rem;
+  --mt-line-height: 1.2;
+  --mt-typography-spacing-top: 1.874rem;
+}
+
+h5 {
+  --mt-font-size: 1.125rem;
+  --mt-line-height: 1.225;
+  --mt-typography-spacing-top: 1.6875rem;
+}
+
+h6 {
+  --mt-font-size: 1rem;
+  --mt-line-height: 1.25;
+  --mt-typography-spacing-top: 1.5rem;
 }
