@@ -1,29 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@300;600&display=swap");
 
 
+
+
 @media (min-width: 765px)  {
   :root {
     --mt-font-size:  112.5% !important;/*281.25%; */
   }
-   div.container#socials {
-      margin-top: -50px; 
-                    width: 50%;
-            transition: 1.5s ease-in-out;
-margin-left: 27%;
+ 
 
-        }
 }
 @media (min-width: 1080px)  {
   :root {
     --mt-font-size:  112.5% !important;/*281.25%; */
   }
-   div.container#socials {
-      margin-top: -50px; 
-                    width: 50%;
-            transition: 1.5s ease-in-out;
-margin-left: 65vw;
-
-        }
+   
 }
 
 
@@ -31,27 +22,16 @@ margin-left: 65vw;
   :root {
     --mt-font-size: 125%  !important;
   }
-      div.container#socials {
-      margin-top: -50px; 
-                    width: 50%;
-            transition: 1.5s ease-in-out;
-margin-left: 65vw;
-
-        }
+      
     }
 
 @media only screen and (min-width: 1536px) {
   :root {
     --mt-font-size: 131.25% !important;
   }
-      div.container#socials {
-          
-  margin-top: -50px; 
-                    width: 50%;
-            transition: 1.5s ease-in-out;
-margin-left: 65vw;
-
-        }
+ 
+    
+     
     }
 
 
@@ -59,14 +39,9 @@ margin-left: 65vw;
   :root {
     --mt-font-size: 137.8125% !important;
   }
-    div.container#socials {
-        font-size: var(--mt-font-size);
-       margin-top: -50px; 
-                    width: 50%;
-            transition: 1.5s ease-in-out;
-margin-left: 63vw;
-
-    }
+  
+    
+  
 }
 
 
@@ -83,7 +58,7 @@ margin-left: 63vw;
 @media only screen and (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]){
        --mt-primary: #19dacb;
-       --mt-primary-hover-background: #00ffeb;
+       --mt-primary-hover-background: #19ffcb;
           --mt-font-size: 100%;
         --primary-hover: #4CAF50;
         --primary-focus: rgba(67,160,71,0.25);
@@ -96,16 +71,34 @@ margin-left: 63vw;
     --clr-border: hsl(0°, 0%, 20%);
     --clr-alert-text: #fff;
         --clr-button-text: #fff;
-        
+    --clr-item-name-bg: #1f1f1f;
+--clr-item-name-txt: #fff;
         button{
             color: black;
         }
+        #moon{
+              display: inline-block;
+        }
+       #sun{
+              display: none;
+
+        }
+       .overall-stats-item {
+    list-style-type: none; /* Hide bullet point */
+    border: 1px solid #fff; /* Add border */
+           border-radius: 8px;
+    padding: 10px; /* Add padding */
+}
+                a{color: var(--mt-primary); position:relative;text-decoration:none}a::before{content:'';position:absolute;width:100%;height:15%;border-radius:10px;background-color: var(--mt-primary); bottom:0;left:0;transform-origin:right;transform:scaleX(0);transition:transform 0.5s ease-in-out}a:hover::before{transform-origin:left;transform:scaleX(1)}
+        
     }
+                
+    
 }
 @media only screen and (prefers-color-scheme: light) {
 
     :root:not([data-theme="dark"]){
-       --mt-primary: #893eff;
+       --mt-primary: #9146ff;
         --mt-primary-hover-background: #c658f9;
           --mt-font-size: 100%;
           --clr-body-bg: #fefefe;
@@ -115,43 +108,42 @@ margin-left: 63vw;
     --clr-heading: hsl(45, 78%, 82%);
     --clr-border: hsl(0°, 0%, 20%);
     --clr-alert-text: #000;
+        --clr-item-name-bg: #f7f7f7;
+        --clr-item-name-txt: #000;
         --clr-button-text: #000;
+           a{color:#9146ff; position:relative;text-decoration:none}a::before{content:'';position:absolute;width:100%;height:15%;border-radius:10px;background-color:#9146ff;bottom:0;left:0;transform-origin:right;transform:scaleX(0);transition:transform 0.5s ease-in-out}a:hover::before{transform-origin:left;transform:scaleX(1)}
+       
+
                 button{
             color: black;
         }
         
+                #moon{
+              display: none;
+        }
+       #sun{
+              display: inline-block;
+           color: black;
 
-    #itemName:not(:focus) {
-    padding: 8px;
-    margin-right: 8px;
-    color: black; /* Set text color to white */
-    transition: 1.5s ease;
-    width: 100%;
-    background-color: #cbcbcb;
-    text-align: center;
-    font-family: 'Orbitron', sans-serif;
-  font-weight: 900;
-
-}
+        }
+         #checkPriceBtn, #showDropSourcesBtn, #checkStatisticsBtn{
+             color: white;
+         }
         
-#itemName:focus {
-    padding: 8px;
-    margin-right: 8px;
-    color: black; /* Set text color to white */
-    transition: 1.5s ease;
-    width: 50%;
-    background-color: #cbcbcb;
-    text-align: center;
-    font-family: 'Orbitron', sans-serif;
-  font-weight: 900;
 
-}    .drop-sources-table th {
-    background-color: #cdcdcd;
+       .drop-sources-table th {
+    background-color: #f7f7f7;
 }
     }
     article h6{
         color: #000 !important;
     }
+    .overall-stats-item {
+    list-style-type: none; /* Hide bullet point */
+    border: 1px solid #000; /* Add border */
+    border-radius: 8px;
+    padding: 10px; /* Add padding */
+}
 }
 
 
@@ -163,6 +155,7 @@ body {
     background-color: var( --clr-body-bg);
 width: 100vw;
     height: 100vh;
+    transition: 0.75s ease-in-out;
 
     color: white;
      font-family: 'Orbitron', sans-serif;
@@ -192,7 +185,7 @@ width: 100vw;
     width: 100%;
 }
 
-.columns-container {d
+.columns-container {
     display: flex;
     justify-content: space-around;
 }
@@ -217,10 +210,10 @@ label {
 #itemName:not(:focus) {
     padding: 8px;
     margin-right: 8px;
-    color: white; /* Set text color to white */
+    color: var(--clr-item-name-txt); /* Set text color to white */
     transition: 1.5s ease;
     width: 100%;
-    background-color: #1f1f1f;
+    background-color: var(--clr-item-name-bg);
     text-align: center;
     font-family: 'Orbitron', sans-serif;
   font-weight: 900;
@@ -229,10 +222,10 @@ label {
 #itemName:focus {
     padding: 8px;
     margin-right: 8px;
-    color: white; /* Set text color to white */
+    color: var(--clr-item-name-txt);  /* Set text color to white */
     transition: 1.5s ease;
     width: 50%;
-    background-color: #1f1f1f;
+    background-color: var(--clr-item-name-bg);
     text-align: center;
     font-family: 'Orbitron', sans-serif;
   font-weight: 900;
@@ -265,11 +258,17 @@ button:not():hover {
     color: white; /* Set text color to white */
     height: auto;
     transition: 1.5s ease;
+         list-style-type: none;
+
 }
 
 /* New CSS for invisible bullets and horizontal line */
 #priceResult ul {
-    list-style: none;
+     list-style-type: none;
+    padding: 0;
+}
+#orderList ul {
+     list-style-type: none;
     padding: 0;
 }
 
@@ -277,6 +276,8 @@ button:not():hover {
     border-bottom: 1px solid #555; /* Horizontal line color */
     margin-bottom: 5px;
     padding-bottom: 5px;
+         list-style-type: none;
+
 }
 #statisticsResult {
     color: white; /* Set text color to white */
@@ -285,7 +286,7 @@ button:not():hover {
 }
 
 /* New CSS for invisible bullets and horizontal line */
-#statisticsResultt ul {
+#statisticsResult ul {
     list-style: none;
     padding: 0;
 }
@@ -306,44 +307,58 @@ button:not():hover {
     display: flex;
     justify-content: space-around;
     margin-top: 20px;
+         list-style-type: none;
+
 }
 
 .buy-orders,
 .sell-orders {
     flex: 1;
+         list-style-type: none;
+
 }
 
 .order-list {
-    list-style: none;
+     list-style-type: none;
     padding: 0;
 }
 
 .order-item {
     border: 1px solid #4fd355;
+     list-style-type: none;
     border-radius: 4px;
     margin-bottom: 10px;
     padding: 10px;
     background-color: #333;
+    
 }
 
 .order-item p {
     margin: 5px 0;
     color: white;
     font-size: var(--mt-font-size);
+     list-style-type: none;
+
 }
 
 /* Styles for buy and sell columns */
 .buy-orders {
     order: 2;
+     list-style-type: none;
+
 }
 
 .sell-orders {
     order: 1;
+     list-style-type: none;
+
 }
 
 /* Add a little space between columns */
 .orders-container > div {
     margin: 0 10px;
+     list-style-type: none;
+
 }
 
 /* Additional Styles for Columns */
@@ -351,6 +366,8 @@ button:not():hover {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap; /* Allow items to wrap to the next line on smaller screens */
+     list-style-type: none;
+
 }
 
 .column {
@@ -359,17 +376,24 @@ button:not():hover {
     padding: 15px; /* Add padding for better spacing */
     background-color: #333; /* Dark background color for columns */
     border-radius: 8px; /* Add rounded corners */
+     list-style-type: none;
+
 }
 
 .column-header {
     color: #4CAF50;
     font-size: var(--mt-font-size);
     margin-bottom: 10px;
+     list-style-type: none;
+
+    
 }
 
 .column-content {
     color: white;
     font-size: 16px;
+     list-style-type: none;
+
 }
 /* Styles for Sort By and Filter By */
 #sortBy, #statusFilter, #checkPriceBtn, #showDropSourcesBtn, #checkStatisticsBtn {
@@ -488,7 +512,7 @@ input[type="checkbox"]:checked:hover + label {
     color: #4CAF50;
     background-color: #333;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 8px;
     resize: vertical;
     overflow-y: scroll;
         transition: 1.5s ease;
@@ -498,22 +522,27 @@ input[type="checkbox"]:checked:hover + label {
 #jsonResult > div {
     border-bottom: 1px solid #ccc;
     padding: 5px;
+    border-radius: 8px;
 }
 }
 .drop-sources-table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 10px;
+    border-radius: 8px;
+    
 }
 
 .drop-sources-table th, .drop-sources-table td {
     border: 1px solid #dddddd;
+    border-radius: 8px;
     text-align: left;
     padding: 8px;
 }
 
 .drop-sources-table th {
     background-color: #333;
+    border-radius: 8px;
 }
 #themeToggle {
   position: fixed;
@@ -923,11 +952,7 @@ button[data-tooltip] {
 transition-delay: 500ms;
 }
 
-.overall-stats-item {
-    list-style-type: none; /* Hide bullet point */
-    border: 1px solid #fff; /* Add border */
-    padding: 10px; /* Add padding */
-}
+
 h1 {
   --mt-font-size: 2rem;
   --mt-line-height: 1.125;
@@ -962,4 +987,7 @@ h6 {
   --mt-font-size: 1rem;
   --mt-line-height: 1.25;
   --mt-typography-spacing-top: 1.5rem;
+}
+#platformDropdown{
+    width: auto;
 }

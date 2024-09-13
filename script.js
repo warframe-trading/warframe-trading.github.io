@@ -161,8 +161,7 @@ function filterOrders(orders) {
         if (ingameOnly) {
             return (
                 ((buyOrders && order.order_type === 'buy') || (sellOrders && order.order_type === 'sell')) &&
-                order.user.status === 'ingame'
-            );
+                order.user.status === 'ingame');
         } else {
             return (buyOrders && order.order_type === 'buy') || (sellOrders && order.order_type === 'sell');
         }
